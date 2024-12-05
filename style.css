@@ -6,22 +6,28 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f3f3f3;
-  }
-  
-  .flashcard-container {
+}
+
+.flashcard-container {
     perspective: 1000px;
-  }
-  
-  .flashcard {
+    position: relative;
+}
+
+.flashcard {
     width: 300px;
     height: 200px;
     border: 1px solid #ccc;
     border-radius: 10px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-  }
-  
-  .flashcard div {
+    display: none; /* Hide all flashcards by default */
+}
+
+.flashcard.active {
+    display: block; /* Show only the active flashcard */
+}
+
+.flashcard div {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -31,15 +37,72 @@ body {
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .front {
-    background-color: #4caf50;
+}
+
+.front {
+    background-color: #02bcff;
     color: white;
-  }
-  
-  .back {
-    background-color: #2196f3;
+}
+
+.back {
+    background-color: #def321;
     color: white;
     transform: rotateY(180deg);
-  }
+}
+
+#toggle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#prev, #next {
+    position: absolute;
+    bottom: 20px;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+.card {
+    width: 200px;
+    height: 260px;
+    margin: 20px auto;
+    perspective: 600px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}

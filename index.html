@@ -8,12 +8,18 @@
 </head>
 <body>
   <div class="flashcard-container">
-    <div class="flashcard">
-      <div class="front">Question: What is HTML?</div>
-      <div class="back">Answer: HTML stands for HyperText Markup Language.</div>
+    <div class="flashcard" id="flashcard1" onclick="flipCard(this)">
+      <div class="front">Front 1</div>
+      <div class="back">Back 1</div>
     </div>
+    <div class="flashcard" id="flashcard2" onclick="flipCard(this)">
+      <div class="front">Front 2</div>
+      <div class="back">Back 2</div>
+    </div>
+    <!-- Add more flashcards as needed -->
   </div>
-  <button id="toggle">Flip Flashcard</button>
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
   <script src="script.js"></script>
 </body>
 </html>
